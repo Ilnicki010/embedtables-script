@@ -24,7 +24,7 @@ export default Vue.extend({
     const style = document.createElement("link");
     style.type = "text/css";
     style.rel = "stylesheet";
-    style.href = "/style.css";
+    style.href = "https://zealous-colden-9ab4fd.netlify.app/style.css";
     document.head.appendChild(style);
   },
   data() {
