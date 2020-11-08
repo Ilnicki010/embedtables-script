@@ -1,0 +1,29 @@
+.items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.item {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+  padding: 30px 20px;
+  border: 1px solid #ccc;
+  flex-direction: column;
+  text-align: left;
+  font-size: 0.8rem;
+}
+.item *:first-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.item *:nth-child(2) {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.item *:last-child {
+  margin-top: 20px;
+}
