@@ -42,6 +42,13 @@ function renderWidget(root, template, fields) {
 }
 
 (async function() {
+  if (process.env.NODE_ENV === "production") {
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = "https://zealous-colden-9ab4fd.netlify.app/style.css";
+    document.getElementsByTagName("HEAD")[0].appendChild(link);
+  }
   const data = await getProjectById(root.dataset["embedtableid"]);
   root.style.setProperty("--primary-color", data.primaryColor);
   root.style.setProperty("--secondary-color", data.secondaryColor);

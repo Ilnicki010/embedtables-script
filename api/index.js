@@ -11,7 +11,7 @@ async function getData(url) {
       .then((data) => data.json())
       .then((data) => data);
     await deleteOldCaches(cacheName);
-    await cacheStorage.add(url, data);
+    await cacheStorage.put(url, data);
     return data;
   } catch {
     const cachedData = await getCachedData(cacheName, url);
