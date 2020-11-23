@@ -47,7 +47,7 @@ function renderWidget(root, template, fields) {
     link.rel = "stylesheet";
     link.type = "text/css";
     link.href = "https://zealous-colden-9ab4fd.netlify.app/style.css";
-    document.getElementsByTagName("HEAD")[0].appendChild(link);
+    document.getElementsByTagName("head")[0].appendChild(link);
   }
   const data = await getProjectById(root.dataset["embedtableid"]);
   root.style.setProperty("--primary-color", data.primaryColor);
