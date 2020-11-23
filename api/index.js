@@ -7,7 +7,6 @@ async function getData(url) {
 
   const cacheStorage = await caches.open(cacheName);
   try {
-    console.log("Fetching fresh data");
     const data = fetch(url)
       .then((data) => data.json())
       .then((data) => data);
@@ -15,7 +14,6 @@ async function getData(url) {
     await cacheStorage.add(url, data);
     return data;
   } catch {
-    console.log("Retrieved cached data");
     const cachedData = await getCachedData(cacheName, url);
     if (cachedData) {
       return cachedData;

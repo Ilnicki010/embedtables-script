@@ -19,7 +19,11 @@ function renderWidget(root, template, fields) {
       itemDOM.classList.add(row[i].name.replace(" ", "-"));
 
       if (row[i].name == "Button_text" && row[i].value) {
-        const link = row.find((el) => el.name == "Button_url").value || "/";
+        const link = row.find((el) => el.name == "Button_url");
+        let linkValue = null;
+        if (link) {
+          linkValue = link.value || "/";
+        }
         itemDOM.innerHTML = `<a href='${link}'>${row[i].value}</a>`;
       } else if (row[i].name == "Button_url") {
         continue;
