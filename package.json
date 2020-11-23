@@ -12,7 +12,8 @@
     "sass": "^1.26.11"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"parcel build app.js style.scss"
   },
   "author": "",
   "license": "ISC",
