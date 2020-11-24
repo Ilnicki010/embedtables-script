@@ -10,6 +10,7 @@
 
 # production
 /dist
+.cache
 
 # misc
 .DS_Store
