@@ -41,7 +41,6 @@ function renderWidget(root, template, fields) {
 import styles from "./et-templates-style.css";
 
 (async function() {
-  console.log(styles);
   root.innerHTML += `
     <style>${styles}</style> 
     `;

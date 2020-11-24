@@ -10,7 +10,7 @@ async function getData(url) {
     const data = await getCachedData(cacheName, url);
     return data;
   } catch (err) {
-    console.error(err);
+    console.log(err);
     const cachedData = await getCachedData(cacheName, url);
     if (cachedData) {
       return cachedData;
