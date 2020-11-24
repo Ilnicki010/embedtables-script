@@ -1,7 +1,5 @@
 import { getProjectById } from "./api";
 
-// import "./style.scss";
-
 const root = document.getElementById("embedTable");
 
 function renderWidget(root, template, fields) {
@@ -40,17 +38,14 @@ function renderWidget(root, template, fields) {
 
   root.append(wrapper);
 }
+import styles from "./et-templates-style.cssx";
 
 (async function() {
+  console.log(styles);
+  root.innerHTML += `
+    <style>${styles}</style> 
+    `;
   const data = await getProjectById(root.dataset["embedtableid"]);
-
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.type = "text/css";
-  link.href =
-    "https://zealous-colden-9ab4fd.netlify.app/et-templates-style.css";
-  document.getElementsByTagName("head")[0].appendChild(link);
-
   root.style.setProperty("--primary-color", data.primaryColor);
   root.style.setProperty("--secondary-color", data.secondaryColor);
   renderWidget(root, data.templateSlug, data.fields);

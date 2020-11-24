@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+      "*.cssx": "css",
+      ".parcelrc": "json",
+      ".postcssrc": "json"
+    }
+  }
