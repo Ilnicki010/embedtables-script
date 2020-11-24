@@ -4,16 +4,13 @@ export const getProjectById = async (id) => {
 async function getData(url) {
   const cacheVersion = 1;
   const cacheName = `embedtables-${cacheVersion}`;
-
-  const cacheStorage = await caches.open(cacheName);
   try {
-    const data = fetch(url)
-      .then((data) => data.json())
-      .then((data) => data);
-    await deleteOldCaches(cacheName);
-    await cacheStorage.put(url, data);
+    const cacheStorage = await caches.open(cacheName);
+    await cacheStorage.add(url);
+    const data = await getCachedData(cacheName, url);
     return data;
-  } catch {
+  } catch (err) {
+    console.error(err);
     const cachedData = await getCachedData(cacheName, url);
     if (cachedData) {
       return cachedData;
