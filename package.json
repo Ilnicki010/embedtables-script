@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build app.js"
+    "build": "npx -p parcel-bundler parcel build app.js"
   },
   "author": "",
   "license": "ISC",
