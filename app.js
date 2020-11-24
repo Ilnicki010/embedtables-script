@@ -38,7 +38,7 @@ function renderWidget(root, template, fields) {
 
   root.append(wrapper);
 }
-import styles from "./et-templates-style.cssx";
+import styles from "./et-templates-style.css";
 
 (async function() {
   console.log(styles);
