@@ -29,7 +29,7 @@ function renderWidget(root, template, fields) {
         itemDOM.innerHTML = `<img loading="lazy" src='${row[i].value ||
           "https://via.placeholder.com/150"}'/>`;
       } else {
-        itemDOM.innerHTML = row[i].value;
+        itemDOM.innerHTML = `<span>${row[i].value}</span>`;
       }
       rowDOM.append(itemDOM);
     }

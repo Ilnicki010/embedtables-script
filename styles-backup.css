@@ -82,7 +82,7 @@
 .list-1 .item div:not(.Image_url) {
   z-index: 100;
 }
-.list-1 .item div:nth-child(1) span {
+.list-1 .item .Event-Name {
   font-size: 2rem;
   margin-bottom: 10px;
   color: rgb(var(--primary-color));
@@ -90,11 +90,10 @@
   margin-top: 20px;
   word-break: break-word;
 }
-.list-1 .item div:nth-child(2) {
-  margin-bottom: 10px;
-}
-.list-1 .item div:nth-child(2) span {
-  font-weight: 600;
+.list-1 .item .Date,
+.list-1 .item .Time {
+  color: rgb(var(--secondary-color));
+  filter: invert(1);
 }
 .list-1 .item .Button_text {
   margin-top: 20px;
@@ -103,7 +102,6 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  z-index: -99;
 }
 .list-1 .item .Image_url img {
   object-fit: cover;
@@ -117,7 +115,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 99;
   background: linear-gradient(
     rgba(var(--secondary-color), 0),
     rgba(var(--secondary-color), 1) 80%
@@ -126,12 +123,12 @@
 
 /* calendar-1 */
 
-.calendar-basic,
-.calendar-basic * {
+.calendar-1,
+.calendar-1 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-.calendar-basic {
+.calendar-1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   padding: 30px;
@@ -140,7 +137,7 @@
   gap: 30px;
 }
 
-.calendar-basic .item {
+.calendar-1 .item {
   width: 100%;
   margin: 0 1rem 1rem 0;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
@@ -155,9 +152,9 @@
   position: relative;
 }
 
-.calendar-basic .item .Date,
-.calendar-basic .item .Time,
-.calendar-basic .item .Location {
+.calendar-1 .item .Date,
+.calendar-1 .item .Time,
+.calendar-1 .item .Location {
   text-align: center;
   justify-self: flex-start;
   position: relative;
@@ -168,9 +165,9 @@
   font-size: 0.9rem;
 }
 
-.calendar-basic .item .Date::before,
-.calendar-basic .item .Time::before,
-.calendar-basic .item .Location::before {
+.calendar-1 .item .Date::before,
+.calendar-1 .item .Time::before,
+.calendar-1 .item .Location::before {
   display: inline-block;
   margin-right: 5px;
   content: " ";
@@ -180,7 +177,7 @@
   width: 16px;
 }
 
-.calendar-basic .item:first-child::after {
+.calendar-1 .item:first-child::after {
   content: "Next event";
   display: block;
   position: absolute;
@@ -193,23 +190,23 @@
   border-radius: 3px;
 }
 
-.calendar-basic .item .Date::before {
+.calendar-1 .item .Date::before {
   background-image: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve"> <g> <path d="M60,13.3H34.7V9.9c1.6-0.8,2.7-2.7,2.7-4.5C37.3,2.4,34.9,0,32,0s-5.3,2.4-5.3,5.3c0,1.9,1.1,3.7,2.7,4.5v3.5H4 c-2.1,0-4,1.6-4,4V60c0,2.1,1.9,4,4,4h56c2.1,0,4-1.9,4-4V32v-5.3v-9.3C64,15.2,62.1,13.3,60,13.3z M58.7,58.7H5.3V32h53.3V58.7z M5.3,26.7v-8h53.3v8H5.3z"/> <path d="M14.7,42.7h2.7c0.8,0,1.3-0.5,1.3-1.3v-2.7c0-0.8-0.5-1.3-1.3-1.3h-2.7c-0.8,0-1.3,0.5-1.3,1.3v2.7 C13.3,42.1,13.9,42.7,14.7,42.7z"/> <path d="M25.3,42.7H28c0.8,0,1.3-0.5,1.3-1.3v-2.7c0-0.8-0.5-1.3-1.3-1.3h-2.7c-0.8,0-1.3,0.5-1.3,1.3v2.7 C24,42.1,24.5,42.7,25.3,42.7z"/> <path d="M36,42.7h2.7c0.8,0,1.3-0.5,1.3-1.3v-2.7c0-0.8-0.5-1.3-1.3-1.3H36c-0.8,0-1.3,0.5-1.3,1.3v2.7 C34.7,42.1,35.2,42.7,36,42.7z"/> <path d="M46.7,42.7h2.7c0.8,0,1.3-0.5,1.3-1.3v-2.7c0-0.8-0.5-1.3-1.3-1.3h-2.7c-0.8,0-1.3,0.5-1.3,1.3v2.7 C45.3,42.1,45.9,42.7,46.7,42.7z"/> <path d="M14.7,53.3h2.7c0.8,0,1.3-0.5,1.3-1.3v-2.7c0-0.8-0.5-1.3-1.3-1.3h-2.7c-0.8,0-1.3,0.5-1.3,1.3V52 C13.3,52.8,13.9,53.3,14.7,53.3z"/> <path d="M25.3,53.3H28c0.8,0,1.3-0.5,1.3-1.3v-2.7c0-0.8-0.5-1.3-1.3-1.3h-2.7c-0.8,0-1.3,0.5-1.3,1.3V52 C24,52.8,24.5,53.3,25.3,53.3z"/> <path d="M36,53.3h2.7c0.8,0,1.3-0.5,1.3-1.3v-2.7c0-0.8-0.5-1.3-1.3-1.3H36c-0.8,0-1.3,0.5-1.3,1.3V52C34.7,52.8,35.2,53.3,36,53.3 z"/> <path d="M46.7,53.3h2.7c0.8,0,1.3-0.5,1.3-1.3v-2.7c0-0.8-0.5-1.3-1.3-1.3h-2.7c-0.8,0-1.3,0.5-1.3,1.3V52 C45.3,52.8,45.9,53.3,46.7,53.3z"/> </g> </svg>');
 }
 
-.calendar-basic .item .Time::before {
+.calendar-1 .item .Time::before {
   background-image: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve"> <g> <path d="M56.3,22.7c1.6-1.9,2.4-4.3,2.4-6.7c0-5.9-4.8-10.7-10.7-10.7c-3.2,0-6.4,1.6-8.3,4c-1.6-0.5-3.2-0.8-5.1-1.1V5.3h2.7 c1.6,0,2.7-1.1,2.7-2.7S38.9,0,37.3,0H26.7C25.1,0,24,1.1,24,2.7s1.1,2.7,2.7,2.7h2.7v2.9c-1.6,0.3-3.5,0.5-5.1,1.1 c-1.9-2.4-5.1-4-8.3-4C10.1,5.3,5.3,10.1,5.3,16c0,2.4,0.8,4.8,2.4,6.7c-2.4,4-3.5,8.5-3.5,13.3c0,15.5,12.3,28,27.7,28 s27.7-12.5,27.7-28C59.7,31.2,58.7,26.7,56.3,22.7z M48,10.7c2.9,0,5.3,2.4,5.3,5.3c0,0.5-0.3,1.3-0.3,1.9 c-2.1-2.7-4.8-4.8-7.7-6.4C45.9,10.9,46.9,10.7,48,10.7z M10.7,16c0-2.9,2.4-5.3,5.3-5.3c1.1,0,2.1,0.3,2.9,0.8 c-2.9,1.6-5.6,3.7-8,6.4C10.9,17.3,10.7,16.5,10.7,16z M32,58.7C19.5,58.7,9.6,48.5,9.6,36S19.7,13.3,32,13.3 c12.5,0,22.4,10.1,22.4,22.7S44.5,58.7,32,58.7z"/> <path d="M42.7,34.7h-8V24c0-1.6-1.1-2.7-2.7-2.7c-1.6,0-2.7,1.1-2.7,2.7v10.7c-1.6,0-2.7,1.1-2.7,2.7c0,1.6,1.1,2.7,2.7,2.7 c0,1.6,1.1,2.7,2.7,2.7c1.6,0,2.7-1.1,2.7-2.7h8c1.6,0,2.7-1.1,2.7-2.7C45.3,35.7,44.3,34.7,42.7,34.7z"/> </g> </svg>');
 }
 
-.calendar-basic .item .Location::before {
+.calendar-1 .item .Location::before {
   background-image: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" id="Layer_2_1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve"> <g> <ellipse cx="30.8" cy="11.9" rx="2.1" ry="1.9"/> <path d="M60.7,16.7l-20.5-4.8c0-5.1-4.3-9.1-9.3-9.1s-9.3,4.3-9.3,9.3c0,1.1,0.3,2.4,1.1,4l-0.8-0.3L5.5,11.6 c-1.3-0.3-2.7,0-3.7,0.8c-1.3,0.5-1.9,1.9-1.9,3.2v33.9c0,1.9,1.3,3.5,2.9,4l17.3,7.5h0.3c0.5,0,1.1,0.3,1.3,0.3 c0.5,0,1.1,0,1.6-0.3L42,53.2l16.5,6.4h0.3c0.3,0,0.5,0,1.1,0c0.8,0,1.9-0.3,2.7-0.8c1.1-0.8,1.6-2.1,1.6-3.5V20.7 C63.9,18.8,62.5,16.9,60.7,16.7z M30.8,7.9c2.1,0,4,1.6,4,4c0,1.1-1.3,4-4,8c-2.7-4-4-7.2-4-8C26.8,9.5,28.7,7.9,30.8,7.9z M27.9,25.2c0.5,0.8,1.6,1.3,2.7,1.3l0,0c1.1,0,2.1-0.5,2.7-1.3c2.1-2.9,3.7-5.6,4.8-8l1.6-0.3v31.2l-16,6.7V20.9l1.1-0.3 C25.7,22,26.8,23.6,27.9,25.2z M5.2,16.9l13.3,3.7v33.9L5.2,48.9V16.9z M58.5,54l-13.3-5.3V18.3l13.3,3.2V54z"/> </g> </svg>');
 }
 
-.calendar-basic .item .Description {
+.calendar-1 .item .Description {
   grid-column: 1 / span 3;
   opacity: 0.85;
 }
-.calendar-basic .item .Event-Name {
+.calendar-1 .item .Event-Name {
   grid-row: 2;
   grid-column: 1 / span 3;
   font-weight: 600;
@@ -219,18 +216,18 @@
   margin-bottom: -20px;
 }
 
-.calendar-basic .item .Button_text {
+.calendar-1 .item .Button_text {
   grid-column: 1 / span 3;
   justify-self: flex-end;
 }
-.calendar-basic .item .Image_url {
+.calendar-1 .item .Image_url {
   grid-row: 1;
   grid-column: 1 / span 3;
   width: calc(100% + 40px);
   height: calc(100% + 40px);
   margin-left: -20px;
 }
-.calendar-basic .item .Image_url img {
+.calendar-1 .item .Image_url img {
   width: 100%;
   height: 100%;
   border-radius: 4px 4px 0 0;
