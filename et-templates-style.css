@@ -181,7 +181,7 @@
 }
 
 .calendar-basic .item:first-child::after {
-  content: "Next event";
+  content: "Highlighted";
   display: block;
   position: absolute;
   top: 20px;
@@ -209,7 +209,7 @@
   grid-column: 1 / span 3;
   opacity: 0.85;
 }
-.calendar-basic .item .Event-Name {
+.calendar-basic .item div:first-child {
   grid-row: 2;
   grid-column: 1 / span 3;
   font-weight: 600;

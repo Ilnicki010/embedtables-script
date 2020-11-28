@@ -1,5 +1,11 @@
 export const getProjectById = async (id) => {
-  return await getData(`${process.env.LAMBDA_ENDPOINT}/projects/data/${id}`);
+  // return await getData();
+  return fetch(`${process.env.LAMBDA_ENDPOINT}/projects/data/${id}`)
+    .then((data) => data.json())
+    .then((data) => {
+      console.log(data);
+      return data;
+    });
 };
 async function getData(url) {
   const cacheVersion = 1;

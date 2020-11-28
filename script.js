@@ -2,11 +2,22 @@ import { getProjectById } from "./api";
 
 const root = document.getElementById("embedTable");
 
-function renderWidget(root, template, fields) {
+function renderWidget(root, template, integrationName, fields) {
   const wrapper = document.createElement("div");
   wrapper.classList.add(template);
 
   fields.map((row) => {
+    if (integrationName === "airtable") {
+      row.map((r) => {
+        if (r.name.indexOf("*") > -1) {
+          r["order"] = Number(r.name.split("*")[0]) || 99;
+          r["name"] = r.name.substring(2);
+        }
+      });
+      row = row.sort((el, el2) => el.order - el2.order);
+      console.log(row);
+    }
+
     const rowDOM = document.createElement("div");
     rowDOM.classList.add("item");
     let buttonText = row.find((el) => el.name == "Button_text");
@@ -47,5 +58,5 @@ import styles from "./et-templates-style.css";
   const data = await getProjectById(root.dataset["embedtableid"]);
   root.style.setProperty("--primary-color", data.primaryColor);
   root.style.setProperty("--secondary-color", data.secondaryColor);
-  renderWidget(root, data.templateSlug, data.fields);
+  renderWidget(root, data.templateSlug, data.integrationName, data.fields);
 })();
