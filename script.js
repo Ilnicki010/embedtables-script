@@ -33,7 +33,7 @@ function renderWidget(root, template, integrationName, fields) {
         if (link) {
           linkValue = link.value || "/";
         }
-        itemDOM.innerHTML = `<a href='${link}'>${row[i].value}</a>`;
+        itemDOM.innerHTML = `<a href='${linkValue}'>${row[i].value}</a>`;
       } else if (row[i].name == "Button_url") {
         continue;
       } else if (row[i].name == "Image_url") {
