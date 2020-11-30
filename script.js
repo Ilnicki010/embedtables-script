@@ -19,7 +19,11 @@ function renderWidget(root, template, integrationName, fields) {
     }
 
     const rowDOM = document.createElement("div");
+    const rowImageWrapper = document.createElement("div");
+    const rowContentWrapper = document.createElement("div");
     rowDOM.classList.add("item");
+    rowImageWrapper.classList.add("item__image");
+    rowContentWrapper.classList.add("item__content");
     let buttonText = row.find((el) => el.name == "Button_text");
     let buttonUrl = row.find((el) => el.name == "Button_url");
     for (let i = 0; i < row.length; i++) {
@@ -34,15 +38,19 @@ function renderWidget(root, template, integrationName, fields) {
           linkValue = link.value || "/";
         }
         itemDOM.innerHTML = `<a href='${linkValue}'>${row[i].value}</a>`;
+        rowContentWrapper.append(itemDOM);
       } else if (row[i].name == "Button_url") {
         continue;
       } else if (row[i].name == "Image_url") {
         itemDOM.innerHTML = `<img loading="lazy" src='${row[i].value ||
-          "https://via.placeholder.com/150"}'/>`;
+          "https://picsum.photos/300"}'/>`;
+        rowImageWrapper.append(itemDOM);
       } else {
         itemDOM.innerHTML = `<span>${row[i].value}</span>`;
+        rowContentWrapper.append(itemDOM);
       }
-      rowDOM.append(itemDOM);
+      rowDOM.append(rowImageWrapper);
+      rowDOM.append(rowContentWrapper);
     }
     wrapper.append(rowDOM);
   });
