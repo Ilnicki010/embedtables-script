@@ -248,6 +248,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 30px;
   align-items: flex-start;
+  justify-content: center;
 }
 .store-book-store .item {
   margin: 7%;
@@ -262,6 +263,9 @@
   flex: 2;
   min-width: 300px;
   margin-top: 15px;
+}
+.store-book-store .item .item__content div span {
+  word-break: break-word;
 }
 .store-book-store .item .item__image {
   flex: 1;
