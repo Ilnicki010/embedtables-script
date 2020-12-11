@@ -57,7 +57,7 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
   root.append(wrapper);
   if (showBranding) {
     const brandingDOM = document.createElement("div");
-    brandingDOM.innerHTML = `<span class="branding">Made with </span><a href="https://embedtables.com"><img src="https://app.embedtables.com/static/media/logo.8fd74efc.svg" width="20px" alt="embedtables"/></a>`;
+    brandingDOM.innerHTML = `<div class="braning-wrapper"><span class="branding">Made with </span><a href="https://embedtables.com"><img src="https://app.embedtables.com/static/media/logo.8fd74efc.svg" width="20px" alt="embedtables"/></a></div>`;
     root.append(brandingDOM);
   }
 }

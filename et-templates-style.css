@@ -39,6 +39,12 @@
   .item .Button_text {
     margin-top: 20px;
   } */
+.braning-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .branding {
   font-size: 0.8rem;
   opacity: 0.8;
