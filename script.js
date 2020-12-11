@@ -54,12 +54,12 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
     }
     wrapper.append(rowDOM);
   });
+  root.append(wrapper);
   if (showBranding) {
     const brandingDOM = document.createElement("div");
-    brandingDOM.innerHTML = `<span class="branding">Made with embedtables.com</span>`;
-    wrapper.append(brandingDOM);
+    brandingDOM.innerHTML = `<span class="branding">Made with </span><a href="https://embedtables.com"><img src="https://app.embedtables.com/static/media/logo.8fd74efc.svg" width="20px" alt="embedtables"/></a>`;
+    root.append(brandingDOM);
   }
-  root.append(wrapper);
 }
 import styles from "./et-templates-style.css";
 
