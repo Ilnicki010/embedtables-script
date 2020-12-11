@@ -54,7 +54,7 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
     }
     wrapper.append(rowDOM);
     if (showBranding) {
-      brandingDOM = document.createElement("div");
+      const brandingDOM = document.createElement("div");
       brandingDOM.innerHTML = `<span>Made with embedtables.com</span>`;
       wrapper.append(brandingDOM);
     }
