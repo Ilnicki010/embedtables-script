@@ -316,7 +316,6 @@
   place-items: center;
   align-items: flex-start;
   gap: 3px;
-  padding: 20px;
 }
 .list-basic-2 .item {
   border-radius: 20px;
@@ -326,8 +325,12 @@
   padding: 20px;
   position: relative;
   color: #222;
+  height: 100%;
   border: 1px solid #ccc;
 }
 .list-basic-2 .item .item__content div:first-child span {
   font-weight: 600;
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 15px;
 }
