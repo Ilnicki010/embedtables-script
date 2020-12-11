@@ -42,10 +42,10 @@
 .braning-wrapper {
   margin-top: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 .branding {
+  display: block;
   font-size: 0.8rem;
   opacity: 0.8;
 }
