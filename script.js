@@ -2,7 +2,7 @@ import { getProjectById } from "./api";
 
 const root = document.getElementById("embedTable");
 
-function renderWidget(root, template, integrationName, fields) {
+function renderWidget(root, template, integrationName, showBranding, fields) {
   const wrapper = document.createElement("div");
   wrapper.classList.add(template);
 
@@ -53,6 +53,11 @@ function renderWidget(root, template, integrationName, fields) {
       rowDOM.append(rowContentWrapper);
     }
     wrapper.append(rowDOM);
+    if (showBranding) {
+      brandingDOM = document.createElement("div");
+      brandingDOM.innerHTML = `<span>Made with embedtables.com</span>`;
+      wrapper.append(brandingDOM);
+    }
   });
 
   root.append(wrapper);
@@ -66,5 +71,11 @@ import styles from "./et-templates-style.css";
   const data = await getProjectById(root.dataset["embedtableid"]);
   root.style.setProperty("--primary-color", data.primaryColor);
   root.style.setProperty("--secondary-color", data.secondaryColor);
-  renderWidget(root, data.templateSlug, data.integrationName, data.fields);
+  renderWidget(
+    root,
+    data.templateSlug,
+    data.integrationName,
+    data.showBranding,
+    data.fields
+  );
 })();

@@ -3,7 +3,6 @@ export const getProjectById = async (id) => {
   return fetch(`${process.env.LAMBDA_ENDPOINT}/projects/data/${id}`)
     .then((data) => data.json())
     .then((data) => {
-      console.log(data);
       return data;
     });
 };
