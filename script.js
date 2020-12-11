@@ -53,13 +53,12 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
       rowDOM.append(rowContentWrapper);
     }
     wrapper.append(rowDOM);
-    if (showBranding) {
-      const brandingDOM = document.createElement("div");
-      brandingDOM.innerHTML = `<span>Made with embedtables.com</span>`;
-      wrapper.append(brandingDOM);
-    }
   });
-
+  if (showBranding) {
+    const brandingDOM = document.createElement("div");
+    brandingDOM.innerHTML = `<span class="branding">Made with embedtables.com</span>`;
+    wrapper.append(brandingDOM);
+  }
   root.append(wrapper);
 }
 import styles from "./et-templates-style.css";

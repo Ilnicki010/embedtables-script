@@ -39,7 +39,10 @@
   .item .Button_text {
     margin-top: 20px;
   } */
-
+.branding {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
 .item a {
   text-decoration: none;
   font-size: 1rem !important;
