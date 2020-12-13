@@ -194,8 +194,8 @@
   margin-bottom: 15px;
 }
 .calendar-basic .item .item__content div:first-child span {
-  font-size: 2rem;
   font-weight: 600;
+  font-size: 1.2rem;
 }
 .calendar-basic .item .item__content .Date,
 .calendar-basic .item .item__content .Time,
