@@ -1,6 +1,6 @@
 import { getProjectById } from "./api";
 
-const root = document.getElementById("embedTable");
+const roots = document.querySelectorAll("div[data-embedtableid]");
 
 function renderWidget(root, template, integrationName, showBranding, fields) {
   const wrapper = document.createElement("div");
@@ -64,17 +64,19 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
 import styles from "./et-templates-style.css";
 
 (async function() {
-  root.innerHTML += `
-    <style>${styles}</style> 
-    `;
-  const data = await getProjectById(root.dataset["embedtableid"]);
-  root.style.setProperty("--primary-color", data.primaryColor);
-  root.style.setProperty("--secondary-color", data.secondaryColor);
-  renderWidget(
-    root,
-    data.templateSlug,
-    data.integrationName,
-    data.showBranding,
-    data.fields
-  );
+  roots.forEach(async function(root) {
+    root.innerHTML += `
+      <style>${styles}</style> 
+      `;
+    const data = await getProjectById(root.dataset["embedtableid"]);
+    root.style.setProperty("--primary-color", data.primaryColor);
+    root.style.setProperty("--secondary-color", data.secondaryColor);
+    renderWidget(
+      root,
+      data.templateSlug,
+      data.integrationName,
+      data.showBranding,
+      data.fields
+    );
+  });
 })();
