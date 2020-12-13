@@ -332,11 +332,21 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
   position: relative;
   color: #222;
   height: 100%;
   border: 1px solid #ccc;
+}
+.list-basic-2 .item .item__content {
+  padding: 10px;
+}
+.list-basic-2 .item .item__image {
+  width: 100%;
+  object-fit: cover;
+}
+.list-basic-2 .item .item__image img {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
 }
 .list-basic-2 .item .item__content div:first-child span {
   font-weight: 600;
