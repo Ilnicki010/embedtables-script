@@ -46,7 +46,13 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
           "https://picsum.photos/300"}'/>`;
         rowImageWrapper.append(itemDOM);
       } else {
-        itemDOM.innerHTML = `<span>${row[i].value}</span>`;
+        if (row[i].value === "TRUE") {
+          itemDOM.innerHTML = `<span style="color:green">&#10003;</span>`;
+        } else if (row[i].value === "FALSE") {
+          itemDOM.innerHTML = `<span style="color:red">&#10007;</span>`;
+        } else {
+          itemDOM.innerHTML = `<span >${row[i].value}</span>`;
+        }
         rowContentWrapper.append(itemDOM);
       }
       rowDOM.append(rowImageWrapper);
