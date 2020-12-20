@@ -163,25 +163,29 @@
   border-radius: 4px;
   word-break: break-word;
   display: grid;
-  grid-template-rows: 300px auto;
+  grid-template-rows: auto auto;
   align-items: center;
   row-gap: 20px;
   position: relative;
 }
 .calendar-basic .item .item__image {
   grid-row: 1;
-  height: 100%;
   position: relative;
 }
-.calendar-basic .item .item__image .Image_url {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.calendar-basic .item .item__image::after {
+  display: block;
+  content: "";
+  /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
 }
 .calendar-basic .item .item__image .Image_url img {
-  object-fit: cover;
-  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .calendar-basic .item .item__content {
