@@ -52,11 +52,10 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
           itemDOM.innerHTML = `<span style="color:red">&#10007;</span>`;
         } else {
           itemDOM.innerHTML = `<span style='font-style: ${row[i].styles
-            .textFormat.italic && "italic"};font-weight:${row[i].styles
-            .textFormat.bold && "800"};text-decoration: ${row[i].styles
-            .textFormat.underline && "underline"}'>${
-            row[i].formattedValue
-          }</span>`;
+            ?.textFormat.italic && "italic"};font-weight:${row[i].styles
+            ?.textFormat.bold && "800"};text-decoration: ${row[i].styles
+            ?.textFormat.underline && "underline"}'>${row[i].formattedValue ||
+            ""}</span>`;
         }
         rowContentWrapper.append(itemDOM);
       }

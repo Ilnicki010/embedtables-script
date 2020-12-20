@@ -242,7 +242,7 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
         } else if (row[i].value === "FALSE") {
           itemDOM.innerHTML = `<span style="color:red">&#10007;</span>`;
         } else {
-          itemDOM.innerHTML = `<span style='font-style: ${row[i].styles.textFormat.italic && "italic"};font-weight:${row[i].styles.textFormat.bold && "800"};text-decoration: ${row[i].styles.textFormat.underline && "underline"}'>${row[i].formattedValue}</span>`;
+          itemDOM.innerHTML = `<span style='font-style: ${row[i].styles?.textFormat.italic && "italic"};font-weight:${row[i].styles?.textFormat.bold && "800"};text-decoration: ${row[i].styles?.textFormat.underline && "underline"}'>${row[i].formattedValue || ""}</span>`;
         }
 
         rowContentWrapper.append(itemDOM);
@@ -302,7 +302,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52105" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53589" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
