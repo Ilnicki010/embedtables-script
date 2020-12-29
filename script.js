@@ -46,9 +46,9 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
           "https://picsum.photos/300"}'/>`;
         rowImageWrapper.append(itemDOM);
       } else {
-        if (row[i].value === "TRUE") {
+        if (row[i].value.toString().toLowerCase() === "true") {
           itemDOM.innerHTML = `<span style="color:green">&#10003;</span>`;
-        } else if (row[i].value === "FALSE") {
+        } else if (row[i].value.toString().toLowerCase() === "false") {
           itemDOM.innerHTML = `<span style="color:red">&#10007;</span>`;
         } else {
           if (row[i].styles) {
@@ -58,7 +58,9 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
               .textFormat.underline && "underline"}'>${row[i].formattedValue ||
               ""}</span>`;
           } else {
-            itemDOM.innerHTML = `<span>${row[i].formattedValue || ""}</span>`;
+            itemDOM.innerHTML = `<span>${row[i].formattedValue ||
+              row[i].value ||
+              ""}</span>`;
           }
         }
         rowContentWrapper.append(itemDOM);
@@ -76,13 +78,15 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
   }
 }
 import styles from "./et-templates-style.css";
+import loaderStyles from "./loader-style.css";
 
 (async function() {
   roots.forEach(async function(root) {
-    root.innerHTML += `
-      <style>${styles}</style> 
-      `;
+    root.innerHTML = `<div class="lds-ripple-wrapper"><div class="lds-ripple"><div></div><div></div></div></div><style>${loaderStyles}</style>`;
     const data = await getProjectById(root.dataset["embedtableid"]);
+    root.innerHTML = `
+    <style>${styles}</style> 
+    `;
     root.style.setProperty("--primary-color", data.primaryColor);
     root.style.setProperty("--secondary-color", data.secondaryColor);
     renderWidget(
