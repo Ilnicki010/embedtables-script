@@ -241,9 +241,9 @@ function renderWidget(root, template, integrationName, showBranding, fields) {
         itemDOM.innerHTML = `<img loading="lazy" src='${row[i].value || "https://picsum.photos/300"}'/>`;
         rowImageWrapper.append(itemDOM);
       } else {
-        if (row[i].value.toString().toLowerCase() === "true") {
+        if (row[i].value && row[i].value.toString().toLowerCase() === "true") {
           itemDOM.innerHTML = `<span style="color:green">&#10003;</span>`;
-        } else if (row[i].value.toString().toLowerCase() === "false") {
+        } else if (row[i].value && row[i].value.toString().toLowerCase() === "false") {
           itemDOM.innerHTML = `<span style="color:red">&#10007;</span>`;
         } else {
           if (row[i].styles) {
